@@ -1,6 +1,6 @@
 databaseChangeLog:
   - include:
-        file: db/changelog/create-database-schema.xml
+      file: db/changelog/create-database-schema.xml
 #  - include:
 #        file: db/changelog/insert-employee-data.xml
 #  - include:

@@ -24,12 +24,6 @@
             </column>
         </createTable>
 
-        <!-- for manual rollback
-        <rollback>
-          <dropTable tableName="company"/>
-        </rollback>
-        -->
-
         <createTable tableName="role">
             <column name="id" type="int" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>

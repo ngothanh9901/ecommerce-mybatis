@@ -16,24 +16,25 @@ import java.util.List;
 
 @Configuration
 public class SpringFoxConfig {
-    @Bean
-    public Docket api() {
-        List<RequestParameter> auth = new ArrayList<>();
-        auth.add(authorizationHeader());
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.ecommerce"))
-                .paths(PathSelectors.any())
-                .build()
-                .globalRequestParameters(auth);
-    }
-    private RequestParameter authorizationHeader() {
+	@Bean
+	public Docket api() {
+		List<RequestParameter> auth = new ArrayList<>();
+		auth.add(authorizationHeader());
+		return new Docket(DocumentationType.SWAGGER_2)
+				.select()
+				.apis(RequestHandlerSelectors.basePackage("com.example.ecommerce.controller"))
+				.paths(PathSelectors.any())
+				.build()
+				.globalRequestParameters(auth);
+	}
 
-        return new RequestParameterBuilder()
-                .name("Authorization")
-                .description("Authorization header")
-                .in(ParameterType.HEADER)
-                .required(false)
-                .build();
-    }
+	private RequestParameter authorizationHeader() {
+
+		return new RequestParameterBuilder()
+				.name("Authorization")
+				.description("Authorization header")
+				.in(ParameterType.HEADER)
+				.required(false)
+				.build();
+	}
 }

@@ -5,19 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserDto {
+	private String name;
 
-	private Long id;
-	private String firstname;
-	private String lastname;
-	@Column(unique = true)
 	private String email;
-	private String password;
 
+	private String username;
+
+	private String password;
 }

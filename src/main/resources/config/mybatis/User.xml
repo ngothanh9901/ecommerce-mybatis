@@ -11,9 +11,9 @@
         <result property="password" column="PASSWORD"/>
     </resultMap>
 
-    <insert id="insertUser">
-        INSERT INTO user (ID, NAME, EMAIL, USERNAME, PASSWORD)
-        VALUES (#{id}, #{name}, #{email}, #{username}, #{password};
+    <insert id="insertUser" >
+        INSERT INTO user (NAME, EMAIL, USERNAME, PASSWORD)
+        VALUES (#{name}, #{email}, #{username}, #{password});
     </insert>
 
     <update id="updateUser">
@@ -40,6 +40,12 @@
         SELECT *
         FROM user
         WHERE ID = #{id};
+    </select>
+
+<!--    Nếu tồn tại => true-->
+    <select id="isExistsByName" resultMap="userResultMap">
+        SELECT
+            exists(select 1 from user where name="")
     </select>
 
 </mapper>

@@ -3,32 +3,27 @@ package com.example.ecommerce.repository;
 import com.example.ecommerce.dto.UserDto;
 import com.example.ecommerce.model.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Mapper
 @Repository
 public interface UserRepository {
 
-	boolean existsByUserName(String userName);
-	boolean existsByUserNameAndIdNot(String userName, Long id);
-	int insertUser(User user);
+	int insertUser(UserDto userDto);
 
-	int updateUser(Long id, User user);
+	int updateUser(User user);
 
-	int deleteUserById(int userId);
+	User selectUserById(int id);
 
 	List<User> selectAllUser();
 
-	Optional<User> selectUserById(Long id);
+	boolean deleteUserById(int id);
 
-	User createdUser(UserDto userDto);
-	Optional<User> findById(Long id);
+	boolean insertUser(String name);
 
-	List<User> findAll();
+	User insertUser();
 
-	User save(User car);
+	boolean isExistsByName();
 }
